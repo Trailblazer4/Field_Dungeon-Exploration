@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnfkwnsp66nme"]
+
+[ext_resource type="Script" path="res://Battle.gd" id="1_i6x73"]
+[ext_resource type="Texture2D" uid="uid://bylc481uyqu18" path="res://icon.svg" id="2_y2hsk"]
+[ext_resource type="Script" path="res://Party1Battle.gd" id="3_xkxwl"]
+[ext_resource type="Script" path="res://PartyBattle.gd" id="3_xxug3"]
+[ext_resource type="Script" path="res://Party2Battle.gd" id="4_pj4ix"]
+[ext_resource type="Script" path="res://Party3Battle.gd" id="5_mvyiy"]
+[ext_resource type="Script" path="res://Party4Battle.gd" id="6_2p83i"]
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_i6x73")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(514, 317)
+zoom = Vector2(1.2, 1.2)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -104.0
+offset_top = -57.0
+offset_right = 1228.0
+offset_bottom = 723.0
+color = Color(0.52549, 0.623529, 0, 1)
+
+[node name="Party" type="Node2D" parent="."]
+position = Vector2(764, 262)
+script = ExtResource("3_xxug3")
+
+[node name="Party1" type="CharacterBody2D" parent="Party"]
+position = Vector2(17, -114)
+motion_mode = 1
+script = ExtResource("3_xkxwl")
+
+[node name="Party2" type="CharacterBody2D" parent="Party"]
+position = Vector2(19, 2)
+motion_mode = 1
+script = ExtResource("4_pj4ix")
+
+[node name="Party3" type="CharacterBody2D" parent="Party"]
+position = Vector2(19, 119)
+motion_mode = 1
+script = ExtResource("5_mvyiy")
+
+[node name="Party4" type="CharacterBody2D" parent="Party"]
+position = Vector2(19, 242)
+motion_mode = 1
+script = ExtResource("6_2p83i")
+
+[node name="Enemies" type="Node2D" parent="."]
+position = Vector2(378, 287)
+
+[node name="Enemy" type="Sprite2D" parent="Enemies"]
+position = Vector2(-8, 22)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_y2hsk")
